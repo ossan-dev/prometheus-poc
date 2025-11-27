@@ -34,3 +34,4 @@ go.work.sum
 # Local Storage
 grafana-storage/
 prometheus-data/
+dashboards/
