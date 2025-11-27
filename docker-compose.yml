@@ -16,3 +16,14 @@ services:
     network_mode: host
     depends_on:
     - prometheus
+    - graphite
+  graphite:
+    image: graphiteapp/graphite-statsd
+    container_name: graphite_server
+    healthcheck:
+      test: ["CMD-SHELL", "netstat -an | grep -q 2003"]
+      interval: 10s
+      retries: 3
+      start_period: 30s
+      timeout: 10s
+    network_mode: host
